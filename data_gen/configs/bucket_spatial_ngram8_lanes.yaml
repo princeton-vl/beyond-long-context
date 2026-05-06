@@ -1,0 +1,70 @@
+step_profiles:
+  LONG_FORM:
+    step_range: [0.5, 1.1]
+    fps: 1
+    num_questions: 100
+
+buckets:
+  - id: SPATIAL_L4000_N8_ELOW
+    seq_len: {min: 3000, max: 4000}
+    entropy: {min: 0.0, max: 0.55, units: bits}
+    max_prefix_len: 8
+    rule_mode: probabilistic
+    target_sequences: 25
+    target_videos: 25
+    step_profile: LONG_FORM
+    vocab_size: 5
+    disable_entropy_drop_guard: true
+
+  - id: SPATIAL_L4000_N8_MED
+    seq_len: {min: 3000, max: 4000}
+    entropy: {min: 1.5, max: 2.5, units: bits}
+    max_prefix_len: 8
+    rule_mode: probabilistic
+    target_sequences: 25
+    target_videos: 25
+    step_profile: LONG_FORM
+    vocab_size: 5
+
+  - id: SPATIAL_L4000_N8_NO_RULES
+    seq_len: {min: 3000, max: 4000}
+    entropy: {min: 2.2, max: 2.4, units: bits}
+    max_prefix_len: 8
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 25
+    target_videos: 25
+    step_profile: LONG_FORM
+    vocab_size: 5
+
+  - id: SPATIAL_L10000_N8_ELOW
+    seq_len: {min: 8000, max: 10000}
+    entropy: {min: 0.0, max: 0.55, units: bits}
+    max_prefix_len: 8
+    rule_mode: probabilistic
+    target_sequences: 25
+    target_videos: 25
+    step_profile: LONG_FORM
+    vocab_size: 5
+    disable_entropy_drop_guard: true
+
+  - id: SPATIAL_L10000_N8_MED
+    seq_len: {min: 8000, max: 10000}
+    entropy: {min: 1.5, max: 2.5, units: bits}
+    max_prefix_len: 8
+    rule_mode: probabilistic
+    target_sequences: 25
+    target_videos: 25
+    step_profile: LONG_FORM
+    vocab_size: 5
+
+  - id: SPATIAL_L10000_N8_NO_RULES
+    seq_len: {min: 8000, max: 10000}
+    entropy: {min: 2.2, max: 2.4, units: bits}
+    max_prefix_len: 8
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 25
+    target_videos: 25
+    step_profile: LONG_FORM
+    vocab_size: 5

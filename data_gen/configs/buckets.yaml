@@ -1,0 +1,1614 @@
+step_profiles:
+  STEPF:
+    step_range:
+    - 0.6
+    - 1.4
+    fps: 1
+    num_questions: 40
+  STEPS:
+    step_range:
+    - 0.7
+    - 3.5
+    fps: 1
+    num_questions: 40
+buckets:
+- id: L30_STEPF_E1_N1_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L30_STEPF_E1_N1_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 1
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L30_STEPF_E1_N2_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L30_STEPF_E1_N2_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L30_STEPF_E1_N4_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L30_STEPF_E1_N4_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L30_STEPF_E2_N1_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E2_N1_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 1
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E2_N2_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E2_N2_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E2_N4_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E2_N4_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E3_N1_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E3_N1_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 1
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E3_N2_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E3_N2_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E3_N4_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPF_E3_N4_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L30_STEPS_E2_N1_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E2_N1_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 1
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E2_N2_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E2_N2_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E2_N4_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E2_N4_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E3_N1_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E3_N1_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 1
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E3_N2_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E3_N2_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E3_N4_DET
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L30_STEPS_E3_N4_PROB
+  seq_len:
+    min: 15
+    max: 30
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPS
+- id: L150_STEPF_E1_N1_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L150_STEPF_E1_N1_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 1
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L150_STEPF_E1_N2_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L150_STEPF_E1_N2_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L150_STEPF_E1_N4_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L150_STEPF_E1_N4_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L150_STEPF_E1_N6_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L150_STEPF_E1_N6_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.0
+    max: 0.5
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+  disable_entropy_drop_guard: true
+- id: L150_STEPF_E2_N1_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E2_N1_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 1
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E2_N2_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E2_N2_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E2_N4_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E2_N4_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E2_N6_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E2_N6_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E3_N1_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E3_N1_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 1
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E3_N2_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E3_N2_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E3_N4_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E3_N4_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E3_N6_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E3_N6_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E4_N1_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E4_N1_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 1
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E4_N2_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E4_N2_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E4_N4_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E4_N4_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E4_N6_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPF_E4_N6_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 80
+  target_videos: 80
+  step_profile: STEPF
+- id: L150_STEPS_E2_N2_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E2_N2_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E2_N4_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E2_N4_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E2_N6_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E2_N6_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E3_N2_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E3_N2_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E3_N4_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E3_N4_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E3_N6_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E3_N6_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E4_N2_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E4_N2_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E4_N4_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E4_N4_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E4_N6_DET
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L150_STEPS_E4_N6_PROB
+  seq_len:
+    min: 50
+    max: 150
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 70
+  target_videos: 70
+  step_profile: STEPS
+- id: L1000_STEPF_E2_N2_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E2_N2_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E2_N4_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E2_N4_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E2_N6_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E2_N6_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 0.5
+    max: 1.1
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E3_N2_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E3_N2_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E3_N4_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E3_N4_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E3_N6_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E3_N6_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E4_N2_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E4_N2_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E4_N4_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E4_N4_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E4_N6_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPF_E4_N6_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 60
+  target_videos: 60
+  step_profile: STEPF
+- id: L1000_STEPS_E3_N4_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E3_N4_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E3_N6_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E3_N6_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E3_N8_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 8
+  rule_mode: deterministic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E3_N8_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 8
+  rule_mode: probabilistic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E4_N4_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E4_N4_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E4_N6_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E4_N6_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E4_N8_DET
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 8
+  rule_mode: deterministic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L1000_STEPS_E4_N8_PROB
+  seq_len:
+    min: 500
+    max: 1000
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 8
+  rule_mode: probabilistic
+  target_sequences: 50
+  target_videos: 50
+  step_profile: STEPS
+- id: L2500_STEPS_E3_N4_DET
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E3_N4_PROB
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E3_N6_DET
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E3_N6_PROB
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E3_N8_DET
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 8
+  rule_mode: deterministic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E3_N8_PROB
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.1
+    max: 1.8
+    units: bits
+  max_prefix_len: 8
+  rule_mode: probabilistic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E4_N4_DET
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E4_N4_PROB
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E4_N6_DET
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E4_N6_PROB
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E4_N8_DET
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 8
+  rule_mode: deterministic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS
+- id: L2500_STEPS_E4_N8_PROB
+  seq_len:
+    min: 1500
+    max: 2500
+  entropy:
+    min: 1.8
+    max: 2.6
+    units: bits
+  max_prefix_len: 8
+  rule_mode: probabilistic
+  target_sequences: 25
+  target_videos: 25
+  step_profile: STEPS

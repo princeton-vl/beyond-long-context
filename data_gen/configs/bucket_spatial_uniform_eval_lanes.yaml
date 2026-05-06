@@ -1,0 +1,266 @@
+step_profiles:
+  LONG_FORM:
+    step_range: [0.5, 1.1]
+    fps: 1
+    num_questions: 16
+
+buckets:
+  - id: UNIFORM_EVAL_L008_ELOW
+    seq_len: {min: 8, max: 8}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L008_NO_RULES
+    seq_len: {min: 8, max: 8}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L016_ELOW
+    seq_len: {min: 16, max: 16}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L016_NO_RULES
+    seq_len: {min: 16, max: 16}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L032_ELOW
+    seq_len: {min: 32, max: 32}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L032_MED
+    seq_len: {min: 32, max: 32}
+    entropy: {min: 0.7, max: 1.2, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L032_NO_RULES
+    seq_len: {min: 32, max: 32}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L064_ELOW
+    seq_len: {min: 64, max: 64}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L064_NO_RULES
+    seq_len: {min: 64, max: 64}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L128_ELOW
+    seq_len: {min: 128, max: 128}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L128_MED
+    seq_len: {min: 128, max: 128}
+    entropy: {min: 0.7, max: 1.2, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L128_NO_RULES
+    seq_len: {min: 128, max: 128}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L256_ELOW
+    seq_len: {min: 256, max: 256}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L256_NO_RULES
+    seq_len: {min: 256, max: 256}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L512_ELOW
+    seq_len: {min: 512, max: 512}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L512_MED
+    seq_len: {min: 512, max: 512}
+    entropy: {min: 0.7, max: 1.2, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L512_NO_RULES
+    seq_len: {min: 512, max: 512}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L1024_ELOW
+    seq_len: {min: 1024, max: 1024}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L1024_NO_RULES
+    seq_len: {min: 1024, max: 1024}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L2048_ELOW
+    seq_len: {min: 2048, max: 2048}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L2048_MED
+    seq_len: {min: 2048, max: 2048}
+    entropy: {min: 0.7, max: 1.2, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L2048_NO_RULES
+    seq_len: {min: 2048, max: 2048}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+
+  - id: UNIFORM_EVAL_L4096_ELOW
+    seq_len: {min: 4096, max: 4096}
+    entropy: {min: 0.0, max: 0.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true
+
+  - id: UNIFORM_EVAL_L4096_NO_RULES
+    seq_len: {min: 4096, max: 4096}
+    entropy: {min: 1.2, max: 1.7, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 20
+    target_videos: 20
+    step_profile: LONG_FORM
+    vocab_size: 3

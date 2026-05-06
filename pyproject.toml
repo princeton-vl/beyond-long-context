@@ -1,0 +1,194 @@
+[project]
+name = "videollm"
+version = "0.1.0"
+description = "VideoLLM environment with PyTorch, HuggingFace, FlashAttention"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+
+dependencies = [
+  # Core deep learning
+  "torch",
+  "torchvision",
+  "torchaudio",
+  "torchcodec",
+  "scipy>=1.11.0",
+  "accelerate",
+  "deepspeed",
+  "peft",
+  # Utilities
+  "editdistance",
+  "Levenshtein",
+  "tensorboard",
+  "gradio",
+  "moviepy",
+  "submitit",
+  # FlashAttention & IO
+  #"flash-attn",
+  "ffmpeg>=1.4",
+  "av>=15.1.0",
+  "wandb>=0.22.0",
+  # Vision / quant
+  "opencv-python>=4.12.0.88",
+  "qwen-omni-utils>=0.0.8",
+  "compressed-tensors",
+  "safetensors>=0.6.2",
+  "vector-quantize-pytorch>=1.23.2",
+  "vocos>=0.1.0",
+  "insightface>=0.7.3",
+  "onnxruntime-gpu>=1.23.0",
+  "pytest>=8.4.2",
+  "timm>=1.0.22",
+  "videoio>=0.3.0",
+  "decord>=0.6.0",
+]
+
+[project.optional-dependencies]
+hf448 = [
+  "torch==2.6.0",
+  "transformers==4.48.2",
+  "accelerate==1.4.0",
+  "soundfile==0.13.1",
+  "pillow==11.1.0",
+  "scipy==1.15.2",
+  "torchvision==0.21.0",
+  "backoff==2.2.1",
+  "peft==0.14.0",
+  "datasets==3.3.2",
+  "pandas==2.2.3",
+  "flash-attn @ https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.0.8/flash_attn-2.7.4.post1+cu124torch2.6-cp311-cp311-linux_x86_64.whl",
+  "evaluate==0.4.3",
+  "sacrebleu==2.5.1",
+  "qwen-vl-utils"
+
+]
+# Lightweight/pinned HF stack (NO vLLM). Use with: --extra hf-450 --no-sources
+hf450 = [
+  "transformers==4.50.0",
+  "accelerate==1.5.2",
+  "qwen-vl-utils[decord]==0.0.10",
+  "six>=1.17.0",
+  "torch>=2.4.0",
+  "torchvision>=0.19.0",
+  "flash-attn @ https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.4.17/flash_attn-2.8.3+cu128torch2.9-cp311-cp311-linux_x86_64.whl",
+]
+
+hf451 = [
+  "setuptools-scm",
+  "torchdiffeq",
+  "resampy",
+  "x-transformers",
+  "accelerate==0.34.2",
+  "ninja",
+  "flash-attn @ https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.0.8/flash_attn-2.7.4.post1+cu124torch2.6-cp311-cp311-linux_x86_64.whl",
+  "torch==2.6.0",
+  "torchvision==0.21.0",
+  "torchaudio==2.6.0",
+  "peft==0.15.2",
+  "moviepy==2.1.2",
+  "jupyter",
+  "httpx==0.23.0",
+  "pydub==0.25.1",
+  "trl==0.16.0",
+  "glob2",
+  "onnxruntime-gpu",
+  "insightface==0.7.3",
+  "hdbscan==0.8.40",
+  "transformers==4.52",
+  "vllm==0.8.4",
+  "numpy",
+]
+hf453 = [
+  # Only include contradictions vs base/other groups
+  "transformers>=4.53,<4.54",
+  "open_clip_torch",
+  "flash-attn @ https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.4.17/flash_attn-2.8.3+cu128torch2.9-cp311-cp311-linux_x86_64.whl",
+]
+# f028e9340cca466a64592dbea542d3bdd2c89d5e
+full-stack = [
+  "transformers @ git+https://github.com/huggingface/transformers@f028e9340cca466a64592dbea542d3bdd2c89d5e",
+  "flash-attn @ https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.4.11/flash_attn-2.8.3+cu128torch2.8-cp311-cp311-linux_x86_64.whl",
+  "vllm>=0.10.2",
+  "qwen-vl-utils>=0.0.14",
+  "huggingface-hub",
+  "hdbscan",
+  "xgrammar>=0.1.25",
+  "s2wrapper@git+https://github.com/bfshi/scaling_on_scales"
+]
+
+# Exclude the vendored sub-projects from setuptools auto-discovery so a
+# top-level `pip install -e .` only packages the eval-suite modules at the
+# root. Both `training/` and `data_gen/` ship their own pyproject.toml /
+# setup.cfg and should be installed from those subdirectories directly.
+[tool.setuptools.packages.find]
+exclude = ["training*", "data_gen*", "wandb*", "tests*", "external*"]
+
+[tool.uv]
+# Minimal base by default; you opt into full-stack explicitly.
+default-groups = []
+
+# Tell uv these are mutually exclusive so it doesn't try to satisfy both at once.
+conflicts = [
+  [
+    { extra = "hf450" },
+    { extra = "full-stack" },
+  ],
+    [
+    { extra = "hf451" },
+    { extra = "hf450" },
+  ],
+  [
+    { extra = "hf451" },
+    { extra = "full-stack" },
+  ],
+  [
+    { extra = "hf451" },
+    { extra = "hf448" },
+  ],
+  [
+    { extra = "hf451" },
+    { extra = "hf453" },
+  ],
+  [
+    { extra = "hf453" },
+    { extra = "full-stack" },
+  ],
+  [
+    { extra = "hf453" },
+    { extra = "hf450" },
+  ],
+  [
+    { extra = "hf450" },
+    { extra = "hf448" },
+  ],
+  [
+    { extra = "hf453" },
+    { extra = "hf448" },
+  ],
+  [
+    { extra = "hf448" },
+    { extra = "full-stack" },
+  ],
+  [
+    { extra = "hf448" },
+    { extra = "hf453" },
+  ],
+  [
+    { extra = "hf448" },
+    { extra = "hf450" },
+  ],
+  [
+    { extra = "hf450" },
+    { group = "hf448" },
+  ],
+  
+]
+
+[tool.uv.extra-build-dependencies]
+# Ensure flash-attn builds against the installed torch
+flash-attn = [{ requirement = "torch", match-runtime = true }]
+
+[tool.uv.extra-build-variables]
+# Flip to "TRUE" if you want to skip GPU kernels
+flash-attn = { FLASH_ATTENTION_SKIP_CUDA_BUILD = "FALSE" }
+
+# Pin Transformers for full/legacy runs (ignored if you pass --no-sources)

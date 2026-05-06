@@ -1,0 +1,17 @@
+step_profiles:
+  LONG_FORM:
+    step_range: [0.5, 1.1]
+    fps: 1
+    num_questions: 15
+
+buckets:
+  - id: UNIFORM_EVAL_SMOKE
+    seq_len: {min: 64, max: 256}
+    entropy: {min: 0.0, max: 0.3, units: bits}
+    max_prefix_len: 8
+    rule_mode: probabilistic
+    target_sequences: 12
+    target_videos: 12
+    step_profile: LONG_FORM
+    vocab_size: 3
+    disable_entropy_drop_guard: true

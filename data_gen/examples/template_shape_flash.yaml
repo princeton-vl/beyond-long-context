@@ -1,0 +1,54 @@
+video_type: shape_flash_v1
+seed: 98765
+
+render:
+  resolution: [448, 448]
+  fps: 8
+
+timing:
+  step_duration_range: [2.1, 3.1]
+  per_sequence_offset: { S_tokens: 0.0 }
+
+variants:
+  per_job: 1
+  mapping_resample: true
+
+scene:
+  hold_seconds: 1.5
+  item_scale: 0.34
+  tail_seconds: 1.6
+  background_color: [0, 0, 0]
+  frame_color: [24, 24, 30]
+  glow_color: [36, 36, 44]
+
+sequences: [S_tokens]
+share_tokens: false
+
+vocab:
+  token_ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  unique_token_colors:
+    palette:
+      - red
+      - orange
+      - yellow
+      - green
+      - navy
+      - purple
+      - black
+      - white
+      - gray
+      - pink
+      - forest green
+      - cyan
+      - magenta
+      - maroon
+      - beige
+      - olive
+  unique_token_shapes:
+    allow_reuse: true
+    library: [circle, square, triangle, star, t_shape, x_shape]
+  fallback:
+    type: procedural.sculpture2d
+    params: {}
+
+rules: []

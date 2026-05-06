@@ -1,0 +1,38 @@
+step_profiles:
+  MINI:
+    step_range: [0.8, 1.0]
+    fps: 2
+    num_questions: 4
+
+buckets:
+  - id: DEMO_L016_096_ELOW
+    seq_len: {min: 16, max: 96}
+    entropy: {min: 0.0, max: 0.9, units: bits}
+    max_prefix_len: 6
+    rule_mode: probabilistic
+    target_sequences: 6
+    target_videos: 6
+    step_profile: MINI
+    vocab_size: 16
+    disable_entropy_drop_guard: true
+
+  - id: DEMO_L016_096_MED
+    seq_len: {min: 16, max: 96}
+    entropy: {min: 1.5, max: 2.3, units: bits}
+    max_prefix_len: 6
+    rule_mode: probabilistic
+    target_sequences: 6
+    target_videos: 6
+    step_profile: MINI
+    vocab_size: 16
+
+  - id: DEMO_L016_096_NO_RULES
+    seq_len: {min: 16, max: 96}
+    entropy: {min: 3.5, max: 4.0, units: bits}
+    max_prefix_len: 6
+    rule_mode: probabilistic
+    max_rules: 0
+    target_sequences: 6
+    target_videos: 6
+    step_profile: MINI
+    vocab_size: 16

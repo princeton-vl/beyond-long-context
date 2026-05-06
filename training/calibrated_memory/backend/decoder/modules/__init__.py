@@ -1,0 +1,1 @@
+"""Shared decoder building blocks."""

@@ -1,0 +1,266 @@
+step_profiles:
+  FAST:
+    step_range:
+    - 0.2
+    - 0.6
+    fps: 1
+    num_questions: 40
+  SLOW:
+    step_range:
+    - 0.5
+    - 1.1
+    fps: 1
+    num_questions: 40
+buckets:
+- id: SPATIAL_L050_P2_EASY_L050_P2_EASY
+  seq_len:
+    min: 30
+    max: 50
+  entropy:
+    min: 0.0
+    max: 0.7
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L050_P2_MID_L050_P2_MID
+  seq_len:
+    min: 30
+    max: 50
+  entropy:
+    min: 0.7
+    max: 1.7
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L050_P2_HARD_L050_P2_HARD
+  seq_len:
+    min: 30
+    max: 50
+  entropy:
+    min: 1.7
+    max: 2.4
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L050_P4_EASY_L050_P4_EASY
+  seq_len:
+    min: 30
+    max: 50
+  entropy:
+    min: 0.0
+    max: 0.7
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L050_P4_MID_L050_P4_MID
+  seq_len:
+    min: 30
+    max: 50
+  entropy:
+    min: 0.7
+    max: 1.7
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L050_P4_HARD_L050_P4_HARD
+  seq_len:
+    min: 30
+    max: 50
+  entropy:
+    min: 1.7
+    max: 2.4
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L300_P2_EASY_L300_P2_EASY
+  seq_len:
+    min: 200
+    max: 300
+  entropy:
+    min: 0.0
+    max: 0.7
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L300_P2_MID_L300_P2_MID
+  seq_len:
+    min: 200
+    max: 300
+  entropy:
+    min: 0.7
+    max: 1.7
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L300_P2_HARD_L300_P2_HARD
+  seq_len:
+    min: 200
+    max: 300
+  entropy:
+    min: 1.7
+    max: 2.4
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L300_P4_EASY_L300_P4_EASY
+  seq_len:
+    min: 200
+    max: 300
+  entropy:
+    min: 0.0
+    max: 0.7
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L300_P4_MID_L300_P4_MID
+  seq_len:
+    min: 200
+    max: 300
+  entropy:
+    min: 0.7
+    max: 1.7
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L300_P4_HARD_L300_P4_HARD
+  seq_len:
+    min: 200
+    max: 300
+  entropy:
+    min: 1.7
+    max: 2.4
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: FAST
+  vocab_size: 16
+- id: SPATIAL_L2000_P2_EASY_L2000_P2_EASY
+  seq_len:
+    min: 1500
+    max: 2000
+  entropy:
+    min: 0.0
+    max: 0.7
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: SLOW
+  vocab_size: 16
+- id: SPATIAL_L2000_P2_MID_L2000_P2_MID
+  seq_len:
+    min: 1500
+    max: 2000
+  entropy:
+    min: 0.7
+    max: 1.7
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 2778
+  target_videos: 2778
+  step_profile: SLOW
+  vocab_size: 16
+- id: SPATIAL_L2000_P2_HARD_L2000_P2_HARD
+  seq_len:
+    min: 1500
+    max: 2000
+  entropy:
+    min: 1.7
+    max: 2.4
+    units: bits
+  max_prefix_len: 2
+  rule_mode: probabilistic
+  target_sequences: 2777
+  target_videos: 2777
+  step_profile: SLOW
+  vocab_size: 16
+- id: SPATIAL_L2000_P4_EASY_L2000_P4_EASY
+  seq_len:
+    min: 1500
+    max: 2000
+  entropy:
+    min: 0.0
+    max: 0.7
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 2777
+  target_videos: 2777
+  step_profile: SLOW
+  vocab_size: 16
+- id: SPATIAL_L2000_P4_MID_L2000_P4_MID
+  seq_len:
+    min: 1500
+    max: 2000
+  entropy:
+    min: 0.7
+    max: 1.7
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 2777
+  target_videos: 2777
+  step_profile: SLOW
+  vocab_size: 16
+- id: SPATIAL_L2000_P4_HARD_L2000_P4_HARD
+  seq_len:
+    min: 1500
+    max: 2000
+  entropy:
+    min: 1.7
+    max: 2.4
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 2777
+  target_videos: 2777
+  step_profile: SLOW
+  vocab_size: 16

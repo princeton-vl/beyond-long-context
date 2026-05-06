@@ -1,0 +1,42 @@
+video_type: sorting_hub_v1_geom
+seed: 4004
+
+render:
+  resolution: [448, 448]
+  fps: 12
+
+timing:
+  step_duration_range: [0.75, 1.50]
+  per_sequence_offset: { S1: 0.0, S_ctrl: 0.0 }
+
+sequences: [S1, S_ctrl]
+# S1 items; S_ctrl controls which slot (0..num_slots-1) each item goes to.
+
+variants:
+  per_job: 1
+  mapping_resample: true
+
+scene:
+  num_slots: 3
+  belt_speed: 0.80
+  item_scale: 0.11
+
+vocab:
+  fallback:
+    type: procedural.sculpture2d.composite
+    params:
+      palette: { choice: [[210,210,220],[240,200,180],[180,220,200],[200,170,240],[150,210,230],[220,180,150],[190,210,120],[120,190,210],[240,120,120],[120,240,120],[120,120,240],[240,200,120],[120,200,240],[200,120,240]] }
+      lobes: { randint: [6, 14] }
+      jitter: { uniform: [0.05, 0.14] }
+      base_radius: { uniform: [0.16, 0.36] }
+      rot: { uniform: [0.0, 6.28318] }
+      count: { randint: [2, 4] }
+      offset_scale: { uniform: [0.25, 0.45] }
+  mapping:
+    {}
+
+rules:
+  - name: route_by_control
+    params: { seq_main: S1, seq_ctrl: S_ctrl, num_slots: 3 }
+  - name: spawn_spacing
+    params: { min_gap_seconds: 0.18, default_lane: 0 }

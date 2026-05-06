@@ -1,0 +1,96 @@
+[project]
+name = "tinyrecursivemodels"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">3.10, <3.12"
+
+dependencies = [
+  "absl-py>=2.1.0",
+  "aiohttp>=3.9.5",
+  "aiosignal>=1.3.1",
+  "antlr4-python3-runtime",
+  "async-timeout", # still used by some aiohttp setups
+  "attrs>=24.2.0",
+  "cachetools>=5.3.3",
+  "certifi>=2024.7.4",
+  "charset-normalizer>=3.3.2",
+  "click>=8.1.7",
+  "colorama>=0.4.6",
+  "dnc", # pinned (niche lib; newer wheels may be unavailable)
+  "flann", # pinned for compatibility
+  "faiss-gpu-cu12>=1.13.0",
+  "hnswlib>=0.8.0",
+  "frozenlist>=1.4.1",
+  "fsspec>=2024.6.1",
+  "future>=0.18.3",
+  "google-auth>=2.33.0",
+  "google-auth-oauthlib>=1.2.1",
+  "grpcio>=1.66.1",
+  "h5py>=3.11.0",
+  "huggingface-hub>=0.24.5",
+  "hydra-core>=1.3.2",
+  "idna>=3.7",
+  "importlib-metadata>=8.4",
+  "joblib>=1.4.2",
+  "Markdown>=3.6",
+  "multidict>=6.0.5",
+  "nltk>=3.9",
+  "numpy>=1.26,<3.0",
+  "oauthlib>=3.2.2",
+  "omegaconf",
+  "packaging>=24.1",
+  "portalocker>=2.10.1",
+  "protobuf>=4.25,<6",
+  "pyarrow>=20.0.0",
+  "pyasn1>=0.6.0",
+  "pyasn1-modules>=0.4.0",
+  "pyparsing>=3.1.2",
+  "pytorch-lightning>=2.4.0",
+  "PyYAML>=6.0.2",
+  "regex>=2024.5.15",
+  "requests>=2.32.3",
+  "requests-oauthlib>=2.0.0",
+  "rouge-score>=0.1.2",
+  "pytest>=8.3.2",
+  "pluggy>=1.6.0",
+  "rsa>=4.9",
+  "sacrebleu>=2.4.2",
+  "sacremoses>=0.1.1",
+  "six>=1.16.0",
+  "tabulate>=0.9.0",
+  "tensorboard",
+  "tensorboard-data-server",
+  "tensorboard-plugin-wit",
+  "tokenizers", # compatible with Transformers ≥4.40
+  "torch>=2.3.1",
+  "torchvision>=0.18.1",
+  "torchmetrics>=1.3.2",
+  "tqdm>=4.66.4",
+  "transformers>=4.40,<5.0",
+  "typing_extensions>=4.9",
+  "urllib3>=2.2.2",
+  "Werkzeug>=3.0.3",
+  "yarl>=1.9.4",
+  "zipp>=3.19",
+  "causal-conv1d==1.6.1",
+  "mamba-ssm[causal-conv1d]==2.3.1",
+  "wandb>=0.22.3",
+  "flash-attn @ https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.4.17/flash_attn-2.8.3+cu128torch2.9-cp311-cp311-linux_x86_64.whl",
+  "titans-pytorch>=0.4.23",
+  "flash-linear-attention",
+  "matplotlib>=3.10.8",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu126"},
+]
+torchvision = [
+  { index = "pytorch-cu126"},
+]

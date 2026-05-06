@@ -1,0 +1,1156 @@
+{
+  "sprites": [
+    {
+      "id": "icon_000",
+      "path": "icon_000.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 0,
+      "coverage": 0.359375
+    },
+    {
+      "id": "icon_001",
+      "path": "icon_001.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 1,
+      "coverage": 0.4150390625
+    },
+    {
+      "id": "icon_002",
+      "path": "icon_002.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 2,
+      "coverage": 0.1484375
+    },
+    {
+      "id": "icon_003",
+      "path": "icon_003.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 3,
+      "coverage": 0.4013671875
+    },
+    {
+      "id": "icon_004",
+      "path": "icon_004.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 4,
+      "coverage": 0.201171875
+    },
+    {
+      "id": "icon_005",
+      "path": "icon_005.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 6,
+      "coverage": 0.30078125
+    },
+    {
+      "id": "icon_006",
+      "path": "icon_006.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 7,
+      "coverage": 0.1162109375
+    },
+    {
+      "id": "icon_007",
+      "path": "icon_007.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 8,
+      "coverage": 0.2890625
+    },
+    {
+      "id": "icon_008",
+      "path": "icon_008.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 9,
+      "coverage": 0.384765625
+    },
+    {
+      "id": "icon_009",
+      "path": "icon_009.png",
+      "width": 32,
+      "height": 32,
+      "row": 0,
+      "col": 10,
+      "coverage": 0.224609375
+    },
+    {
+      "id": "icon_010",
+      "path": "icon_010.png",
+      "width": 32,
+      "height": 32,
+      "row": 1,
+      "col": 0,
+      "coverage": 0.3388671875
+    },
+    {
+      "id": "icon_011",
+      "path": "icon_011.png",
+      "width": 32,
+      "height": 32,
+      "row": 1,
+      "col": 1,
+      "coverage": 0.34375
+    },
+    {
+      "id": "icon_012",
+      "path": "icon_012.png",
+      "width": 32,
+      "height": 32,
+      "row": 1,
+      "col": 2,
+      "coverage": 0.337890625
+    },
+    {
+      "id": "icon_013",
+      "path": "icon_013.png",
+      "width": 32,
+      "height": 32,
+      "row": 1,
+      "col": 3,
+      "coverage": 0.3759765625
+    },
+    {
+      "id": "icon_014",
+      "path": "icon_014.png",
+      "width": 32,
+      "height": 32,
+      "row": 1,
+      "col": 4,
+      "coverage": 0.36328125
+    },
+    {
+      "id": "icon_015",
+      "path": "icon_015.png",
+      "width": 32,
+      "height": 32,
+      "row": 2,
+      "col": 0,
+      "coverage": 0.314453125
+    },
+    {
+      "id": "icon_016",
+      "path": "icon_016.png",
+      "width": 32,
+      "height": 32,
+      "row": 2,
+      "col": 1,
+      "coverage": 0.314453125
+    },
+    {
+      "id": "icon_017",
+      "path": "icon_017.png",
+      "width": 32,
+      "height": 32,
+      "row": 2,
+      "col": 2,
+      "coverage": 0.4169921875
+    },
+    {
+      "id": "icon_018",
+      "path": "icon_018.png",
+      "width": 32,
+      "height": 32,
+      "row": 2,
+      "col": 3,
+      "coverage": 0.416015625
+    },
+    {
+      "id": "icon_019",
+      "path": "icon_019.png",
+      "width": 32,
+      "height": 32,
+      "row": 2,
+      "col": 4,
+      "coverage": 0.236328125
+    },
+    {
+      "id": "icon_020",
+      "path": "icon_020.png",
+      "width": 32,
+      "height": 32,
+      "row": 2,
+      "col": 5,
+      "coverage": 0.236328125
+    },
+    {
+      "id": "icon_021",
+      "path": "icon_021.png",
+      "width": 32,
+      "height": 32,
+      "row": 2,
+      "col": 6,
+      "coverage": 0.36328125
+    },
+    {
+      "id": "icon_022",
+      "path": "icon_022.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 0,
+      "coverage": 0.3857421875
+    },
+    {
+      "id": "icon_023",
+      "path": "icon_023.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 1,
+      "coverage": 0.4150390625
+    },
+    {
+      "id": "icon_024",
+      "path": "icon_024.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 2,
+      "coverage": 0.3466796875
+    },
+    {
+      "id": "icon_025",
+      "path": "icon_025.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 3,
+      "coverage": 0.3017578125
+    },
+    {
+      "id": "icon_026",
+      "path": "icon_026.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 4,
+      "coverage": 0.3115234375
+    },
+    {
+      "id": "icon_027",
+      "path": "icon_027.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 5,
+      "coverage": 0.38671875
+    },
+    {
+      "id": "icon_028",
+      "path": "icon_028.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 6,
+      "coverage": 0.4775390625
+    },
+    {
+      "id": "icon_029",
+      "path": "icon_029.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 7,
+      "coverage": 0.32421875
+    },
+    {
+      "id": "icon_030",
+      "path": "icon_030.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 8,
+      "coverage": 0.326171875
+    },
+    {
+      "id": "icon_031",
+      "path": "icon_031.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 9,
+      "coverage": 0.298828125
+    },
+    {
+      "id": "icon_032",
+      "path": "icon_032.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 10,
+      "coverage": 0.4228515625
+    },
+    {
+      "id": "icon_033",
+      "path": "icon_033.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 11,
+      "coverage": 0.4287109375
+    },
+    {
+      "id": "icon_034",
+      "path": "icon_034.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 12,
+      "coverage": 0.3173828125
+    },
+    {
+      "id": "icon_035",
+      "path": "icon_035.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 13,
+      "coverage": 0.3994140625
+    },
+    {
+      "id": "icon_036",
+      "path": "icon_036.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 14,
+      "coverage": 0.5087890625
+    },
+    {
+      "id": "icon_037",
+      "path": "icon_037.png",
+      "width": 32,
+      "height": 32,
+      "row": 3,
+      "col": 15,
+      "coverage": 0.4951171875
+    },
+    {
+      "id": "icon_038",
+      "path": "icon_038.png",
+      "width": 32,
+      "height": 32,
+      "row": 4,
+      "col": 0,
+      "coverage": 0.37890625
+    },
+    {
+      "id": "icon_039",
+      "path": "icon_039.png",
+      "width": 32,
+      "height": 32,
+      "row": 4,
+      "col": 1,
+      "coverage": 0.3642578125
+    },
+    {
+      "id": "icon_040",
+      "path": "icon_040.png",
+      "width": 32,
+      "height": 32,
+      "row": 4,
+      "col": 2,
+      "coverage": 0.3564453125
+    },
+    {
+      "id": "icon_041",
+      "path": "icon_041.png",
+      "width": 32,
+      "height": 32,
+      "row": 4,
+      "col": 3,
+      "coverage": 0.3369140625
+    },
+    {
+      "id": "icon_042",
+      "path": "icon_042.png",
+      "width": 32,
+      "height": 32,
+      "row": 4,
+      "col": 4,
+      "coverage": 0.287109375
+    },
+    {
+      "id": "icon_043",
+      "path": "icon_043.png",
+      "width": 32,
+      "height": 32,
+      "row": 4,
+      "col": 5,
+      "coverage": 0.349609375
+    },
+    {
+      "id": "icon_044",
+      "path": "icon_044.png",
+      "width": 32,
+      "height": 32,
+      "row": 4,
+      "col": 6,
+      "coverage": 0.3193359375
+    },
+    {
+      "id": "icon_045",
+      "path": "icon_045.png",
+      "width": 32,
+      "height": 32,
+      "row": 4,
+      "col": 7,
+      "coverage": 0.3681640625
+    },
+    {
+      "id": "icon_046",
+      "path": "icon_046.png",
+      "width": 32,
+      "height": 32,
+      "row": 4,
+      "col": 8,
+      "coverage": 0.3056640625
+    },
+    {
+      "id": "icon_047",
+      "path": "icon_047.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 0,
+      "coverage": 0.11328125
+    },
+    {
+      "id": "icon_048",
+      "path": "icon_048.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 1,
+      "coverage": 0.1748046875
+    },
+    {
+      "id": "icon_049",
+      "path": "icon_049.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 2,
+      "coverage": 0.2021484375
+    },
+    {
+      "id": "icon_050",
+      "path": "icon_050.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 3,
+      "coverage": 0.107421875
+    },
+    {
+      "id": "icon_051",
+      "path": "icon_051.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 4,
+      "coverage": 0.16796875
+    },
+    {
+      "id": "icon_052",
+      "path": "icon_052.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 5,
+      "coverage": 0.162109375
+    },
+    {
+      "id": "icon_053",
+      "path": "icon_053.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 6,
+      "coverage": 0.197265625
+    },
+    {
+      "id": "icon_054",
+      "path": "icon_054.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 7,
+      "coverage": 0.23046875
+    },
+    {
+      "id": "icon_055",
+      "path": "icon_055.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 8,
+      "coverage": 0.17578125
+    },
+    {
+      "id": "icon_056",
+      "path": "icon_056.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 9,
+      "coverage": 0.30859375
+    },
+    {
+      "id": "icon_057",
+      "path": "icon_057.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 10,
+      "coverage": 0.322265625
+    },
+    {
+      "id": "icon_058",
+      "path": "icon_058.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 11,
+      "coverage": 0.3662109375
+    },
+    {
+      "id": "icon_059",
+      "path": "icon_059.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 12,
+      "coverage": 0.28515625
+    },
+    {
+      "id": "icon_060",
+      "path": "icon_060.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 13,
+      "coverage": 0.2470703125
+    },
+    {
+      "id": "icon_061",
+      "path": "icon_061.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 14,
+      "coverage": 0.3564453125
+    },
+    {
+      "id": "icon_062",
+      "path": "icon_062.png",
+      "width": 32,
+      "height": 32,
+      "row": 5,
+      "col": 15,
+      "coverage": 0.3291015625
+    },
+    {
+      "id": "icon_063",
+      "path": "icon_063.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 0,
+      "coverage": 0.47265625
+    },
+    {
+      "id": "icon_064",
+      "path": "icon_064.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 1,
+      "coverage": 0.455078125
+    },
+    {
+      "id": "icon_065",
+      "path": "icon_065.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 2,
+      "coverage": 0.474609375
+    },
+    {
+      "id": "icon_066",
+      "path": "icon_066.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 3,
+      "coverage": 0.171875
+    },
+    {
+      "id": "icon_067",
+      "path": "icon_067.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 4,
+      "coverage": 0.3125
+    },
+    {
+      "id": "icon_068",
+      "path": "icon_068.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 5,
+      "coverage": 0.248046875
+    },
+    {
+      "id": "icon_069",
+      "path": "icon_069.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 6,
+      "coverage": 0.2099609375
+    },
+    {
+      "id": "icon_070",
+      "path": "icon_070.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 7,
+      "coverage": 0.306640625
+    },
+    {
+      "id": "icon_071",
+      "path": "icon_071.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 8,
+      "coverage": 0.2646484375
+    },
+    {
+      "id": "icon_072",
+      "path": "icon_072.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 9,
+      "coverage": 0.2646484375
+    },
+    {
+      "id": "icon_073",
+      "path": "icon_073.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 10,
+      "coverage": 0.2646484375
+    },
+    {
+      "id": "icon_074",
+      "path": "icon_074.png",
+      "width": 32,
+      "height": 32,
+      "row": 6,
+      "col": 11,
+      "coverage": 0.2646484375
+    },
+    {
+      "id": "icon_075",
+      "path": "icon_075.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 0,
+      "coverage": 0.2333984375
+    },
+    {
+      "id": "icon_076",
+      "path": "icon_076.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 1,
+      "coverage": 0.38671875
+    },
+    {
+      "id": "icon_077",
+      "path": "icon_077.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 2,
+      "coverage": 0.3046875
+    },
+    {
+      "id": "icon_078",
+      "path": "icon_078.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 3,
+      "coverage": 0.3994140625
+    },
+    {
+      "id": "icon_079",
+      "path": "icon_079.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 4,
+      "coverage": 0.37890625
+    },
+    {
+      "id": "icon_080",
+      "path": "icon_080.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 5,
+      "coverage": 0.4892578125
+    },
+    {
+      "id": "icon_081",
+      "path": "icon_081.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 6,
+      "coverage": 0.3671875
+    },
+    {
+      "id": "icon_082",
+      "path": "icon_082.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 7,
+      "coverage": 0.359375
+    },
+    {
+      "id": "icon_083",
+      "path": "icon_083.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 8,
+      "coverage": 0.4521484375
+    },
+    {
+      "id": "icon_084",
+      "path": "icon_084.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 9,
+      "coverage": 0.4521484375
+    },
+    {
+      "id": "icon_085",
+      "path": "icon_085.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 10,
+      "coverage": 0.4296875
+    },
+    {
+      "id": "icon_086",
+      "path": "icon_086.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 11,
+      "coverage": 0.490234375
+    },
+    {
+      "id": "icon_087",
+      "path": "icon_087.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 12,
+      "coverage": 0.30078125
+    },
+    {
+      "id": "icon_088",
+      "path": "icon_088.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 13,
+      "coverage": 0.322265625
+    },
+    {
+      "id": "icon_089",
+      "path": "icon_089.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 14,
+      "coverage": 0.419921875
+    },
+    {
+      "id": "icon_090",
+      "path": "icon_090.png",
+      "width": 32,
+      "height": 32,
+      "row": 7,
+      "col": 15,
+      "coverage": 0.3193359375
+    },
+    {
+      "id": "icon_091",
+      "path": "icon_091.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 0,
+      "coverage": 0.28125
+    },
+    {
+      "id": "icon_092",
+      "path": "icon_092.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 1,
+      "coverage": 0.28125
+    },
+    {
+      "id": "icon_093",
+      "path": "icon_093.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 2,
+      "coverage": 0.4052734375
+    },
+    {
+      "id": "icon_094",
+      "path": "icon_094.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 3,
+      "coverage": 0.4052734375
+    },
+    {
+      "id": "icon_095",
+      "path": "icon_095.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 4,
+      "coverage": 0.24609375
+    },
+    {
+      "id": "icon_096",
+      "path": "icon_096.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 5,
+      "coverage": 0.255859375
+    },
+    {
+      "id": "icon_097",
+      "path": "icon_097.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 6,
+      "coverage": 0.2265625
+    },
+    {
+      "id": "icon_098",
+      "path": "icon_098.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 7,
+      "coverage": 0.3369140625
+    },
+    {
+      "id": "icon_099",
+      "path": "icon_099.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 8,
+      "coverage": 0.265625
+    },
+    {
+      "id": "icon_100",
+      "path": "icon_100.png",
+      "width": 32,
+      "height": 32,
+      "row": 8,
+      "col": 9,
+      "coverage": 0.40234375
+    },
+    {
+      "id": "icon_101",
+      "path": "icon_101.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 0,
+      "coverage": 0.294921875
+    },
+    {
+      "id": "icon_102",
+      "path": "icon_102.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 1,
+      "coverage": 0.294921875
+    },
+    {
+      "id": "icon_103",
+      "path": "icon_103.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 2,
+      "coverage": 0.294921875
+    },
+    {
+      "id": "icon_104",
+      "path": "icon_104.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 3,
+      "coverage": 0.294921875
+    },
+    {
+      "id": "icon_105",
+      "path": "icon_105.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 4,
+      "coverage": 0.341796875
+    },
+    {
+      "id": "icon_106",
+      "path": "icon_106.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 5,
+      "coverage": 0.341796875
+    },
+    {
+      "id": "icon_107",
+      "path": "icon_107.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 6,
+      "coverage": 0.341796875
+    },
+    {
+      "id": "icon_108",
+      "path": "icon_108.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 7,
+      "coverage": 0.341796875
+    },
+    {
+      "id": "icon_109",
+      "path": "icon_109.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 8,
+      "coverage": 0.3349609375
+    },
+    {
+      "id": "icon_110",
+      "path": "icon_110.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 9,
+      "coverage": 0.3544921875
+    },
+    {
+      "id": "icon_111",
+      "path": "icon_111.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 10,
+      "coverage": 0.3544921875
+    },
+    {
+      "id": "icon_112",
+      "path": "icon_112.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 11,
+      "coverage": 0.3544921875
+    },
+    {
+      "id": "icon_113",
+      "path": "icon_113.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 12,
+      "coverage": 0.3583984375
+    },
+    {
+      "id": "icon_114",
+      "path": "icon_114.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 13,
+      "coverage": 0.359375
+    },
+    {
+      "id": "icon_115",
+      "path": "icon_115.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 14,
+      "coverage": 0.359375
+    },
+    {
+      "id": "icon_116",
+      "path": "icon_116.png",
+      "width": 32,
+      "height": 32,
+      "row": 9,
+      "col": 15,
+      "coverage": 0.3984375
+    },
+    {
+      "id": "icon_117",
+      "path": "icon_117.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 0,
+      "coverage": 0.509765625
+    },
+    {
+      "id": "icon_118",
+      "path": "icon_118.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 1,
+      "coverage": 0.3193359375
+    },
+    {
+      "id": "icon_119",
+      "path": "icon_119.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 2,
+      "coverage": 0.197265625
+    },
+    {
+      "id": "icon_120",
+      "path": "icon_120.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 3,
+      "coverage": 0.1923828125
+    },
+    {
+      "id": "icon_121",
+      "path": "icon_121.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 4,
+      "coverage": 0.2001953125
+    },
+    {
+      "id": "icon_122",
+      "path": "icon_122.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 5,
+      "coverage": 0.1982421875
+    },
+    {
+      "id": "icon_123",
+      "path": "icon_123.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 6,
+      "coverage": 0.2421875
+    },
+    {
+      "id": "icon_124",
+      "path": "icon_124.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 7,
+      "coverage": 0.25390625
+    },
+    {
+      "id": "icon_125",
+      "path": "icon_125.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 8,
+      "coverage": 0.2939453125
+    },
+    {
+      "id": "icon_126",
+      "path": "icon_126.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 9,
+      "coverage": 0.3447265625
+    },
+    {
+      "id": "icon_127",
+      "path": "icon_127.png",
+      "width": 32,
+      "height": 32,
+      "row": 10,
+      "col": 10,
+      "coverage": 0.2275390625
+    }
+  ]
+}

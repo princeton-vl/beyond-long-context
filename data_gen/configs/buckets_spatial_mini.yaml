@@ -1,0 +1,68 @@
+step_profiles:
+  STEPF:
+    step_range: [0.6, 1.4]
+    fps: 1
+    num_questions: 8
+  STEPS:
+    step_range: [0.7, 3.5]
+    fps: 1
+    num_questions: 8
+
+# Token (main sequence) buckets
+buckets:
+  - id: SPATIAL_MAIN_EASY
+    seq_len: { min: 20, max: 30 }
+    entropy: { min: 0.2, max: 0.8, units: bits }
+    max_prefix_len: 2
+    rule_mode: probabilistic
+    target_sequences: 4
+    target_videos: 4
+    step_profile: STEPF
+    vocab_size: 16
+  - id: SPATIAL_MAIN_MED
+    seq_len: { min: 30, max: 45 }
+    entropy: { min: 0.8, max: 1.4, units: bits }
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 4
+    target_videos: 4
+    step_profile: STEPF
+    vocab_size: 16
+  - id: SPATIAL_MAIN_HARD
+    seq_len: { min: 40, max: 60 }
+    entropy: { min: 1.4, max: 2.0, units: bits }
+    max_prefix_len: 5
+    rule_mode: probabilistic
+    target_sequences: 4
+    target_videos: 4
+    step_profile: STEPS
+    vocab_size: 16
+
+  # Spatial (lane) buckets
+  - id: SPATIAL_LANES_EASY
+    seq_len: { min: 20, max: 30 }
+    entropy: { min: 0.05, max: 0.3, units: bits }
+    max_prefix_len: 1
+    rule_mode: deterministic
+    target_sequences: 4
+    target_videos: 4
+    step_profile: STEPF
+    vocab_size: 5
+  - id: SPATIAL_LANES_MED
+    seq_len: { min: 30, max: 45 }
+    entropy: { min: 0.3, max: 0.7, units: bits }
+    max_prefix_len: 2
+    rule_mode: deterministic
+    target_sequences: 4
+    target_videos: 4
+    step_profile: STEPF
+    vocab_size: 5
+  - id: SPATIAL_LANES_HARD
+    seq_len: { min: 40, max: 60 }
+    entropy: { min: 0.7, max: 1.2, units: bits }
+    max_prefix_len: 3
+    rule_mode: deterministic
+    target_sequences: 4
+    target_videos: 4
+    step_profile: STEPS
+    vocab_size: 5

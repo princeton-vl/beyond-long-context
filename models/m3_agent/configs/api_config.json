@@ -1,0 +1,14 @@
+{
+    "gpt-4o-2024-11-20": {
+        "base_url": "",
+        "api_key": ""
+    },
+    "gemini-1.5-pro-002": {
+        "base_url": "",
+        "api_key": ""
+    },
+    "text-embedding-3-large": {
+        "base_url": "",
+        "api_key": ""
+    }
+}

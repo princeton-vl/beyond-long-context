@@ -1,0 +1,53 @@
+video_type: locker_room_v1_geom
+seed: 12345
+
+render:
+  resolution: [448, 448]
+  fps: 12
+
+sequences: [S_people, S_lockers]  # people with explicit locker choices
+
+timing:
+  step_duration_range: [2.0, 3.0]
+  per_sequence_offset: { S_people: 0.0, S_lockers: 0.1 }
+
+variants:
+  per_job: 1
+  mapping_resample: true
+
+scene:
+  rows: 2
+  cols: 8
+  walk_speed: 0.35
+  item_scale: 0.08
+  locker_capacity: 6
+  show_items: false
+
+vocab:
+  fallback:
+    type: procedural.sculpture2d.composite
+    params:
+      palette: { choice: [[210,210,220],[240,200,180],[180,220,200],[200,170,240],[150,210,230],[220,180,150],[190,210,120],[120,190,210],[240,120,120],[120,240,120],[120,120,240],[240,200,120],[120,200,240],[200,120,240]] }
+      lobes: { randint: [6, 14] }
+      jitter: { uniform: [0.05, 0.14] }
+      base_radius: { uniform: [0.16, 0.36] }
+      rot: { uniform: [0.0, 6.28318] }
+      count: { randint: [2, 4] }
+      offset_scale: { uniform: [0.25, 0.45] }
+  mapping:
+    {}
+
+rules:
+  - name: locker_orchestrator
+    params:
+      people_seq: S_people
+      lockers_seq: S_lockers
+      items_seq: null
+      min_lockers_per_person: 1
+      max_lockers_per_person: 1
+      locker_capacity: 6
+      allow_repeat_lockers: false
+      unique_lockers_per_person: true
+      place_prob: 0.6
+      take_prob: 0.4
+      allow_items_without_item_seq: false

@@ -1,0 +1,43 @@
+video_type: conveyor_v2
+seed: 424242
+
+render:
+  resolution: [448, 448]
+  fps: 8
+
+timing:
+  step_duration_range: [0.70, 1.30]
+  per_sequence_offset: { S_tokens: 0.0, S_lanes: -0.05 }
+
+variants:
+  per_job: 1
+  mapping_resample: true
+
+scene:
+  belts: 5
+  belt_speed: 0.72
+  item_scale: 0.11
+  scanner_y: 0.42
+  scanner_flash_seconds: 0.00
+
+sequences: [S_tokens, S_lanes]
+share_tokens: false
+
+vocab:
+  fallback:
+    type: procedural.sculpture2d.composite
+    params:
+      palette: { choice: [[210,210,220],[240,200,180],[180,220,200],[200,170,240],[150,210,230],[220,180,150],[190,210,120],[120,190,210],[240,120,120],[120,240,120],[120,120,240],[240,200,120],[120,200,240],[200,120,240]] }
+      lobes: { randint: [6, 14] }
+      jitter: { uniform: [0.05, 0.14] }
+      base_radius: { uniform: [0.16, 0.36] }
+      rot: { uniform: [0.0, 6.28318] }
+      count: { randint: [2, 4] }
+      offset_scale: { uniform: [0.25, 0.45] }
+  mapping: {}
+
+rules:
+  - name: conveyor_lane_from_sequence
+    params: { seq_main: S_tokens, seq_lane: S_lanes, belts: 5, default_lane: 2 }
+  - name: spawn_spacing
+    params: { min_gap_seconds: 0.18, default_lane: 2 }

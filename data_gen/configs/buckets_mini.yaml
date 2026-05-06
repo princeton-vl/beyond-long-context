@@ -1,0 +1,93 @@
+step_profiles:
+  STEPF:
+    step_range:
+    - 0.6
+    - 1.4
+    fps: 1
+    num_questions: 8
+  STEPS:
+    step_range:
+    - 0.7
+    - 3.5
+    fps: 1
+    num_questions: 8
+buckets:
+- id: MINI_L30_FAST_DET
+  seq_len:
+    min: 15
+    max: 25
+  entropy:
+    min: 0.15
+    max: 1.1
+    units: bits
+  max_prefix_len: 2
+  rule_mode: deterministic
+  target_sequences: 3
+  target_videos: 3
+  step_profile: STEPF
+- id: MINI_L30_SLOW_PROB
+  seq_len:
+    min: 15
+    max: 25
+  entropy:
+    min: 0.45
+    max: 1.85
+    units: bits
+  max_prefix_len: 4
+  rule_mode: probabilistic
+  target_sequences: 3
+  target_videos: 3
+  step_profile: STEPS
+- id: MINI_L150_FAST_DET
+  seq_len:
+    min: 60
+    max: 120
+  entropy:
+    min: 1.1
+    max: 1.85
+    units: bits
+  max_prefix_len: 4
+  rule_mode: deterministic
+  target_sequences: 3
+  target_videos: 3
+  step_profile: STEPF
+- id: MINI_L150_SLOW_PROB
+  seq_len:
+    min: 60
+    max: 120
+  entropy:
+    min: 1.45
+    max: 2.75
+    units: bits
+  max_prefix_len: 6
+  rule_mode: probabilistic
+  target_sequences: 3
+  target_videos: 3
+  step_profile: STEPS
+- id: MINI_L1000_SLOW_DET
+  seq_len:
+    min: 200
+    max: 350
+  entropy:
+    min: 1.1
+    max: 1.85
+    units: bits
+  max_prefix_len: 6
+  rule_mode: deterministic
+  target_sequences: 3
+  target_videos: 3
+  step_profile: STEPS
+- id: MINI_FAIL_L150_E1
+  seq_len:
+    min: 80
+    max: 100
+  entropy:
+    min: 0.0
+    max: 0.072
+    units: bits
+  max_prefix_len: 1
+  rule_mode: deterministic
+  target_sequences: 2
+  target_videos: 2
+  step_profile: STEPF
+  disable_entropy_drop_guard: true

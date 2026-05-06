@@ -1,0 +1,62 @@
+video_type: conveyor_v2
+seed: 12345
+
+render:
+  resolution: [448, 448]
+  fps: 8
+
+timing:
+  step_duration_range: [0.75, 1.50]
+  per_sequence_offset: { S_tokens: 0.0, S_lanes: -0.05 }
+
+variants:
+  per_job: 1
+  mapping_resample: true
+
+scene:
+  belts: 1
+  belt_speed: 0.70
+  item_scale: 0.2475
+  scanner_y: 0.40
+  scanner_flash_seconds: 0.00
+  lanes_pad: 0.05
+  show_lane_labels: true
+
+sequences: [S_tokens, S_lanes]
+share_tokens: false
+
+vocab:
+  token_ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  token_sprites:
+    manifest: static_icons/manifest.json
+    limit: 64
+    allowed:
+      - icon_000
+      - icon_001
+      - icon_003
+      - icon_005
+      - icon_006
+      - icon_007
+      - icon_008
+      - icon_009
+      - icon_010
+      - icon_011
+      - icon_012
+      - icon_013
+      - icon_014
+      - icon_015
+      - icon_016
+      - icon_025
+      - icon_029
+      - icon_031
+      - icon_040
+      - icon_041
+      - icon_042
+      - icon_058
+  mapping: {}
+
+rules:
+  - name: conveyor_lane_from_sequence
+    params: { seq_main: S_tokens, seq_lane: S_lanes, belts: 1, default_lane: 0 }
+  - name: spawn_spacing
+    params: { min_gap_seconds: 0.20, default_lane: 0 }

@@ -1,0 +1,46 @@
+step_profiles:
+  FAST:
+    step_range: [0.4, 0.7]
+    fps: 8
+    num_questions: 2
+
+buckets:
+  - id: SPATIAL_TEST_SHORT_P2_EASY
+    seq_len: {min: 8, max: 12}
+    entropy: {min: 0.0, max: 0.6, units: bits}
+    max_prefix_len: 2
+    rule_mode: probabilistic
+    target_sequences: 2
+    target_videos: 2
+    step_profile: FAST
+    vocab_size: 12
+
+  - id: SPATIAL_TEST_SHORT_P4_MID
+    seq_len: {min: 8, max: 12}
+    entropy: {min: 0.6, max: 1.2, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 2
+    target_videos: 2
+    step_profile: FAST
+    vocab_size: 10
+
+  - id: SPATIAL_TEST_MED_P2_MID
+    seq_len: {min: 10, max: 15}
+    entropy: {min: 0.4, max: 1.3, units: bits}
+    max_prefix_len: 2
+    rule_mode: probabilistic
+    target_sequences: 2
+    target_videos: 2
+    step_profile: FAST
+    vocab_size: 14
+
+  - id: SPATIAL_TEST_MED_P4_HARD
+    seq_len: {min: 10, max: 15}
+    entropy: {min: 1.0, max: 1.8, units: bits}
+    max_prefix_len: 4
+    rule_mode: probabilistic
+    target_sequences: 2
+    target_videos: 2
+    step_profile: FAST
+    vocab_size: 16
