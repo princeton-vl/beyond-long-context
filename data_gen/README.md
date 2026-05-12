@@ -58,14 +58,14 @@ Conveyor renders now flow through a simplified, letter-only pipeline: every toke
 
 A lane-controlled conveyor variant is available in `examples/template_conveyor_spatial.yaml`. It pairs the visible token stream with a dedicated lane-control sequence so you can ask spatial (belt-order) questions without changing the rendered token order.
 
-For single-stream experiments, `examples/template_shape_flash.yaml` drives the `shape_flash_v1` scene and maps each token to a predefined sculpture template plus a unique palette entry. The helper scripts under `scripts/bucket_shape_flash/` (`make_bucket_sequences.sh`, `make_bucket_videos.sh`, and `make_bucket_dataset.sh`) mirror the spatial bucket workflow so you can batch-generate entire datasets for this mode.
+For single-stream experiments, `examples/template_shape_flash.yaml` drives the `shape_flash_v1` scene and maps each token to a predefined sculpture template plus a unique palette entry. Generate shape-flash buckets the same way as the spatial buckets above (`seq2vid.bucket_cli generate / render`) using `configs/bucket_shape_flash_tokens.yaml`.
 
 A letter-based conveyor template lives at `examples/template_conveyor_letters.yaml`. Instead of sprites, each token renders as a crisp white glyph, keeping the rest of the conveyor settings aligned with the spatial buckets. The evaluation harness auto-regenerates two additional datasets that rely on these templates:
 
 - `easy_test_shape_dark_backg/` – 20 short shape-flash videos with per-option clips.
 - `easy_test_letters/` – 20 conveyor videos that use the letter glyph palette.
 
-The large-scale membership buckets (`scripts/membership_bucket/*`) now produce 25k training videos split across the six entropy/length buckets in `configs/bucket_spatial_uniform_{tokens,lanes}.yaml`. Each rendered video carries 64 binary questions with a 50/50 split between spatial and sequential prompts. The evaluation counterpart (`scripts/membership_bucket_eval/*`) keeps the same per-bucket video counts as before but emits 32 questions per video so eval runs finish quickly while still covering both spatial and sequential modes.
+The large-scale membership buckets (rendered via `seq2vid.bucket_cli` against `configs/bucket_spatial_uniform_{tokens,lanes}.yaml`) produce 25k training videos split across the six entropy/length buckets. Each rendered video carries 64 binary questions with a 50/50 split between spatial and sequential prompts. The evaluation counterpart (`configs/bucket_spatial_uniform_eval_{tokens,lanes}.yaml`) keeps the same per-bucket video counts but emits 32 questions per video so eval runs finish quickly while still covering both spatial and sequential modes.
 
 Both datasets reuse the existing `questions.json` schema so downstream tooling (Hydra configs, evaluation scripts, etc.) needs no adjustments.
 
@@ -104,7 +104,7 @@ Half of the questions are answered "yes" (the clip shows a real, in-context slic
 
 The `seq2vid.render_cli` entry point now writes `validation_manifest.json` next to every `questions.json` (and can be disabled with `--skip-validation` for debugging). The membership and evaluation scripts keep validation enabled by default so regressions are caught before packaging.
 
-If you want a fully bucketed workflow for the spatial scene, use the helper configs under `configs/buckets_spatial_*.yaml` together with the scripts in `scripts/spatial/` (see below). They generate the token (`S_tokens`) and lane (`S_lanes`) sequences separately, merge them into the combined layout expected by `render_cli`, and render questions with a 50% spatial mix by default.
+If you want a fully bucketed workflow for the spatial scene, use the helper configs under `configs/buckets_spatial_*.yaml` together with the `seq2vid.bucket_cli` commands shown in the "Spatial bucket helpers" section below. They generate the token (`S_tokens`) and lane (`S_lanes`) sequences separately, merge them into the combined layout expected by `render_cli`, and render questions with a 50% spatial mix by default.
 
 ## Sequence → video pipeline (seq2vid)
 
@@ -164,7 +164,7 @@ python -m seq2vid.render_cli \
 - `--ffmpeg-codec` enables other encoders such as `libx265` for better compression.
 - In generation, `--num-seqs` is the total pool size; names are auto-assigned.
 - Entropy bounds are checked analytically in bits/symbol using the rule automaton (no LZ re-simulation); a uniform base with no rules always reports `log2(vocab_size)` bits. Generation fails fast if the bounds cannot be met within `--max-attempts`; sequence lengths/vocab sizes/entropy bounds are validated (no silent fallbacks). Top-n-grams per sequence are saved up to `--ngram-max` (configurable) with cumulative mass per n in `top_ngram_mass`. `--disable-entropy-drop-guard` relaxes only the downward guard (allowing larger entropy drops) while still enforcing the upward guard.
-- Rendered `questions.json` files now expose *causal* empirical entropy (`entropy_overall.empirical_bits`) measured via a Lempel–Ziv estimator that only looks at prefix context, plus the analytic bits taken from generation (`entropy_overall.analytic_bits`). Every question’s `entropy_prefix` reports the same causal metric evaluated at `question_index + 1`. If you need to backfill older renders, run `python scripts/migrate_entropy_bits.py --render-root buckets/runs_render --sequences-root buckets/runs_seq` (add `--dry-run` first to inspect changes). The migration script recomputes causal entropy and copies analytic bits from the original sequences.
+- Rendered `questions.json` files expose *causal* empirical entropy (`entropy_overall.empirical_bits`) measured via a Lempel–Ziv estimator that only looks at prefix context, plus the analytic bits taken from generation (`entropy_overall.analytic_bits`). Every question's `entropy_prefix` reports the same causal metric evaluated at `question_index + 1`.
 - The renderer supports `--question-mode exists` ("Did this appear?") and `--question-mode continuation` ("Does this follow the prefix?"). Every question is now binary (`question_format: "binary_yes_no"`) and provides a single `candidate` entry with the rendered clip, the token sequences, and an `answer` field (`"yes"`/`"no"`). Continuation questions still include the sampled `prefix` so downstream consumers know the context.
 - Rendering question lengths are bounded by available n-gram stats and `--question-min-len`. Fakes are rendered with matching background context and clipped; full fake videos are deleted. Templates must declare `sequences: [...]`.
 - Each question entry now carries `question_variant` so you can filter sequential vs spatial prompts when building downstream datasets.
@@ -175,22 +175,44 @@ python -m seq2vid.render_cli \
 
 ### Spatial bucket helpers
 
-```
-scripts/spatial/make_bucket_sequences.sh   # generate tokens + lane sequences (writes S_tokens/S_lanes per bucket)
-scripts/spatial/make_bucket_videos.sh      # render videos/questions with --spatial-question-fraction 0.5
-scripts/spatial/make_bucket_dataset.sh     # combine manifests for evaluation
-scripts/spatial/run_mini_test.sh           # end-to-end smoke test using the *_mini configs
+Use the `seq2vid.bucket_cli` entrypoints directly:
+
+```bash
+# 1) Generate tokens + lane sequences (writes S_tokens/S_lanes per bucket)
+python -m seq2vid.bucket_cli generate \
+    --config configs/buckets_spatial_tokens.yaml --out-dir buckets_spatial/runs_seq_tokens
+python -m seq2vid.bucket_cli generate \
+    --config configs/buckets_spatial_lanes.yaml --out-dir buckets_spatial/runs_seq_lanes
+
+# 2) Render videos / questions with a 50% spatial-question mix
+python -m seq2vid.bucket_cli render \
+    --config configs/buckets_spatial_tokens.yaml \
+    --sequences-root buckets_spatial/runs_seq_tokens \
+    --out-dir buckets_spatial/runs_render \
+    --spatial-question-fraction 0.5 \
+    --sequence-source S_lanes=buckets_spatial/runs_seq_lanes
+
+# 3) Combine manifests for evaluation
+python -m seq2vid.bucket_cli manifest \
+    --sequences-manifest buckets_spatial/runs_seq_tokens/bucket_generation_manifest.json \
+    --render-manifest    buckets_spatial/runs_render/bucket_render_manifest.json \
+    --output             buckets_spatial/bucket_dataset.json
+
+# (Optional) end-to-end smoke test with the *_mini configs
+python -m seq2vid.bucket_cli generate --config configs/buckets_spatial_tokens_mini.yaml --out-dir /tmp/buckets_spatial_mini/runs_seq
+python -m seq2vid.bucket_cli render   --config configs/buckets_spatial_tokens_mini.yaml --sequences-root /tmp/buckets_spatial_mini/runs_seq --out-dir /tmp/buckets_spatial_mini/runs_render
 ```
 
-By default these scripts target `configs/buckets_spatial_tokens.yaml` / `_lanes.yaml` and produce outputs in `buckets_spatial/`. Override `CONFIG_MAIN`, `CONFIG_LANES`, `OUT_DIR`, etc., to point elsewhere.
+By default these point at `configs/buckets_spatial_tokens.yaml` / `_lanes.yaml` and produce outputs under `buckets_spatial/`. Adjust the `--config` / `--out-dir` flags to redirect.
 
 ## Bucketed dataset workflow
 
-When you want to generate the entire 122-bucket dataset, use the new wrapper scripts that sit on top of the updated CLIs:
+Generate the entire 122-bucket dataset by running the Python entrypoints
+directly. `--help` on each prints the full flag set.
 
 > Entropy ranges in `configs/buckets*.yaml` are now stored in bits/symbol (`entropy.units: bits`). The four tiers use round intervals: `[0.0, 0.50)`, `[0.50, 1.10)`, `[1.10, 1.80)`, and `[1.80, 2.60)`. Legacy values from older docs were multiplied by `log2(e)` and snapped to these bounds to match the analytic estimator. Buckets can also set `disable_entropy_drop_guard: true` to bypass the per-iteration drop guard; every `_E1_` bucket does so to avoid over-pruning during extremely low-entropy sweeps.
 
-1. **Generate sequences per bucket** — recommended via `./scripts/make_bucket_sequences.sh` (has SBATCH headers for SLURM). Set env vars like `CONFIG`, `OUT_DIR`, `MAX_ATTEMPTS`, `NO_PROGRESS`, or `INCLUDE` before running, or call the underlying Python entry point directly:
+1. **Generate sequences per bucket** — run the Python entry point directly:
 
    ```bash
    python -m seq2vid.bucket_cli generate \
@@ -204,13 +226,13 @@ When you want to generate the entire 122-bucket dataset, use the new wrapper scr
 
    This fills `buckets/runs_seq/<bucket_id>/sequences.json` (plus manifests) for every bucket. Buckets that fail to make progress for `NO_PROGRESS` consecutive batches are marked `status="failed"` in `buckets/runs_seq/bucket_generation_manifest.json` so downstream steps can skip them.
 
-2. **Render videos/questions per bucket** — run `./scripts/make_bucket_videos.sh` (or `python -m seq2vid.bucket_cli render ...`). Buckets marked `status != completed` in the generation manifest are skipped automatically, and the rest produce per-bucket `videos/`, `clips/`, and `questions.json` under `buckets/runs_render/`. By default the renderer also sets `--uniform-uncertain`, meaning the “Uncertain / IDK” option is correct with the same probability as the other choices and, when that happens, every listed option is a fake sequence.
+2. **Render videos/questions per bucket** — run `python -m seq2vid.bucket_cli render ...`. Buckets marked `status != completed` in the generation manifest are skipped automatically, and the rest produce per-bucket `videos/`, `clips/`, and `questions.json` under `buckets/runs_render/`. By default the renderer also sets `--uniform-uncertain`, meaning the “Uncertain / IDK” option is correct with the same probability as the other choices and, when that happens, every listed option is a fake sequence.
 
-3. **Build a unified manifest** — `./scripts/make_bucket_dataset.sh` (or `python -m seq2vid.bucket_cli manifest ...`) merges the generation and render manifests into `buckets/bucket_dataset.json`, mapping each bucket/video back to its ID for evaluation.
+3. **Build a unified manifest** — `python -m seq2vid.bucket_cli manifest ...` merges the generation and render manifests into `buckets/bucket_dataset.json`, mapping each bucket/video back to its ID for evaluation.
 
 Manifest schemas for every stage (`bucket_generation_manifest.json`, `bucket_render_manifest.json`, `bucket_dataset.json`, and `questions_dataset.json`) are described in `docs/manifest_formats.md`.
 
-For quick smoke tests, `configs/buckets_mini.yaml` defines a handful of buckets (including one intentionally impossible entry) so you can see both successful and failed statuses; run the three scripts with `CONFIG=configs/buckets_mini.yaml` to validate your environment.
+For quick smoke tests, `configs/buckets_mini.yaml` defines a handful of buckets (including one intentionally impossible entry) so you can see both successful and failed statuses; rerun the three commands above with `--config configs/buckets_mini.yaml` to validate your environment.
 
 ## Adding a new rule
 
@@ -295,13 +317,7 @@ Continuation questions now emit binary yes/no entries just like the membership b
 - `prefix_clip_path` / `prefix_clip_start` / `prefix_clip_end`: the rerendered footage of the prefix (exactly 4 tokens) taken from the original video.
 - `candidate` (with `clip_path` etc.): the proposed continuation clip (also 4 tokens) that is either the real follow-up (`answer: "yes"`) or a rerendered distractor (`answer: "no"`).
 
-Both prefix and continuation slices are always length 4 as enforced by the continuation scripts (see `scripts/continuation_bucket*/make_bucket_videos.sh`).
-
-### TODO
-
-- Add an integration test that renders a tiny continuation bucket and verifies via `*.frames.json` that the prefix clip and the candidate clips obey all golden rules (real prefix frames, 4-token length, binary yes/no answers).
-- Port the frame-level validation script into an automated test module so we catch future regressions without manual inspection.
-
+Both prefix and continuation slices are always length 4 as enforced by `seq2vid.bucket_cli render` when invoked with a `continuation_*` config.
 
 ### Validation & Golden Rules
 
@@ -322,8 +338,4 @@ We rely on a mix of automated tests and scripted validators to enforce the “go
   * the one-token-one-frame invariant (frame counts, metadata, ffprobe)
   * frame matching (`_clip_frames_match_video`)
   * sequential/spatial subset predicates (`_contains_subsequence`, `_contains_joint_subsequence`)
-- We also maintain validator scripts (see `tmp/validation_check.py` in the instructions above) that load `test/large_*` buckets and ensure every clip’s frame JSON obeys the golden rules. These are not yet part of CI, so they’re listed under TODO.
-
-**TODO**
-- Promote the validator scripts into automated tests so we catch frame-level regressions without manual runs.
-- Add an integration test that renders a tiny continuation bucket and verifies both the prefix clip and the candidate clip (true and false) against the source video frames.
+- Validator scripts under `tmp/validation_check.py` (in the instructions above) load `test/large_*` buckets and ensure every clip's frame JSON obeys the golden rules.

@@ -114,34 +114,37 @@ The evaluation manifest and pre-extracted videos live on HuggingFace:
 
 > `https://huggingface.co/datasets/anonstreammem/substream-recollection`
 
-The dataset bundles:
+The dataset ships four configs, one per evaluation family. Each is a
+self-contained directory with:
 
-- `questions_dataset.json` — manifest of (video, question) pairs grouped into
-  buckets keyed by carrier length and entropy regime
-  (e.g. `UNIFORM_EVAL_L008_ELOW`, `UNIFORM_EVAL_L032_EHIGH`).
-  [VERIFY: confirm the manifest is at the dataset root and named exactly
-  `questions_dataset.json`. If it lives under a sub-directory, adjust the
-  `--asset-root` argument accordingly.]
-- video clips referenced from the manifest as relative paths, resolved against
-  whatever you pass as `--asset-root`.
+- `manifest.json` — nested `{"videos": [{"video_path": ..., "questions": [...]}]}`
+  consumable by `main.py` directly. Questions are grouped into buckets keyed
+  by carrier length and entropy regime
+  (e.g. `UNIFORM_EVAL_L008_ELOW`, `UNIFORM_EVAL_L032_EHIGH`) for the synthetic
+  families; natural-video uses `nat_<N>_frames` keys (see mapping below).
+- `questions.parquet` and `questions.json` — flat copies of the same data,
+  for `datasets.load_dataset(...)` users who only want to inspect rows.
+- `videos/...mp4` — clips referenced from the manifest as relative paths;
+  resolve them with `--asset-root <config-dir>`.
+
+The four config directories on HuggingFace:
+
+| Local config dir | Contents |
+|---|---|
+| `text/` | Text Substream Recollection (token-stream sequences, L=8…L=4096) |
+| `synthetic_video/` | Synthetic-video Substream Recollection (vidgeom-rendered) |
+| `natural_video/` | Natural-video benchmark (EPIC-Kitchens + SoccerNet; see `extras/NATURAL_DATASET.md`) |
+| `easyhuman/` | EasyHuman diagnostic subset (text + video) |
 
 ### Fetch it
 
 ```bash
-# Full local mirror (recommended; the manifest references clips by relative
-# path and main.py opens them with --asset-root pointing at the mirror).
+# Full local mirror (recommended). The manifest references clips by relative
+# path and main.py opens them with --asset-root pointing at the config dir.
 huggingface-cli download \
     anonstreammem/substream-recollection \
     --repo-type dataset \
-    --local-dir ./data/substream-recollection
-```
-
-If you only need the manifest for inspection:
-
-```python
-from datasets import load_dataset
-ds = load_dataset("anonstreammem/substream-recollection", split="test")
-print(ds[0])
+    --local-dir ./data
 ```
 
 For full eval runs use the `huggingface-cli download` path above — the
@@ -159,8 +162,8 @@ cached.
 ```bash
 source .venv-full-stack/bin/activate
 
-DATASET=./data/substream-recollection/questions_dataset.json
-ASSETS=./data/substream-recollection
+DATASET=./data/synthetic_video/manifest.json
+ASSETS=./data/synthetic_video
 
 mkdir -p ./logs/smoke
 
@@ -327,8 +330,8 @@ evaluated in this benchmark. It exposes a single configurable `main.py`
 entrypoint that drives PyTorch Lightning runs against synthetic and
 file-backed datasets, and includes helper scripts under `training/scripts/`.
 
-The training README upstream documents a private cluster's `uv` environment
-(`/n/fs/penciller/...`); on other clusters install the dependencies from
+The upstream training README documents a private-cluster `uv` environment;
+on any other machine install the dependencies from
 `training/pyproject.toml` into your own venv before running `main.py`. FLOPs
 counting was removed from the training recipes — use `flops_estimator/` above
 for evaluation FLOPs. The upstream README also references `tests/` and

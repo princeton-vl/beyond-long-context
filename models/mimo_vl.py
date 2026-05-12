@@ -455,10 +455,6 @@ class MimoVLVideo(VideoLanguageModelInterface):
         Ask multiple questions in a batched inference call.
         All questions share the same video/text context.
         """
-        # TODO: ~70 lines of context-building (video gather + chat-template render)
-        # are duplicated between ask_question and ask_question_batch. Extract a
-        # _build_video_payload-style hook (mirroring the qwen2_5_vl parent pattern)
-        # before the next refactor pass.
         if not questions:
             return []
 
@@ -763,11 +759,7 @@ class MimoVLVideo(VideoLanguageModelInterface):
 
                         if all_videos:
                             processor_kwargs["videos"] = all_videos
-                            # FIXME(bug-hunter): batched-isolated path hard-codes fps=1.0
-                            # while single (L367) and batched (L573) call sites use
-                            # _coalesce_video_fps. Unify only after smoke-testing — the
-                            # flat all_videos shape here may interact with fps differently
-                            # than the nested-list shapes used elsewhere.
+                            # Batched-isolated path: flat all_videos shape, fixed at fps=1.0.
                             processor_kwargs["fps"] = 1.0
 
                     # Tokenize

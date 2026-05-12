@@ -1,9 +1,26 @@
-# Natural-Video Benchmark — Exact Construction Pipeline
+# Natural-Video Benchmark — Construction Methodology
 
-Step-by-step recipe for the natural-video benchmark underlying §6 of
-`paper_neurips2025_v2/paper.tex` (synthetic-to-natural Spearman $\rho = +0.80$).
-Each stage lists input, exact parameters, exact command/function, and output.
+This document is the **methodology specification** for the natural-video
+benchmark underlying §6 of the paper (synthetic-to-natural
+Spearman $\rho = +0.80$). Each stage lists inputs, exact parameters, and
+the exact ffmpeg / Python primitives that produce each clip.
 Video-only — no text component.
+
+> **Where to get the rendered benchmark.** The four buckets
+> (`benchmark_short`, `benchmark_B1_long`, `benchmark_B2_long`,
+> `benchmark_B3_long`) are released as the `natural_video/` config of
+> `anonstreammem/substream-recollection` on HuggingFace (see the
+> top-level README). The HF release uses the directory names
+> `nat_{8,16,64,128}_frames`; the mapping table below relates these to
+> the bucket names used throughout this document.
+>
+> The rest of this file is the stage-by-stage construction specification
+> — inputs, exact parameters, and the ffmpeg / Python primitives that
+> produce each clip — so the same dataset can be reproduced from raw
+> EPIC-Kitchens / SoccerNet sources. `${DATA_ROOT}` denotes whichever
+> directory you choose to stage downloads and rendered output in;
+> function-and-line references such as `build_benchmark_long_buckets.py:159`
+> point to the source of the algorithm being described.
 
 A home-activity anomaly set of short video clips + 1 SoccerNet class,
 organized into four difficulty buckets by duration × frame budget: `short`,
@@ -11,10 +28,26 @@ organized into four difficulty buckets by duration × frame budget: `short`,
 answers one binary question; mp4 encoded at 1 fps so sampling at fps=1
 yields the nominal frame count.
 
+**Bucket-name mapping (this doc ↔ released HuggingFace artifact).** This
+file uses the original `benchmark_*` names; the HF release renames them by
+nominal frame budget. Bucket order is unchanged.
+
+| This doc | HF release dir (`natural_video/`) | Nominal frames |
+|---|---|---|
+| `benchmark_short`   | `nat_8_frames`   | ≈ 13 (≤ 13)     |
+| `benchmark_B1_long` | `nat_16_frames`  | ≈ 25 (14–36)    |
+| `benchmark_B2_long` | `nat_64_frames`  | ≈ 72 (48–96)    |
+| `benchmark_B3_long` | `nat_128_frames` | ≈ 184 (112–256) |
+
+The HF release may additionally ship longer-context companion buckets
+(`nat_512_frames`, `nat_1024_frames`) that are not part of the
+11-class natural benchmark described here; see the HF dataset card for
+their construction.
+
 **Output tree.**
 
 ```
-/workspace-vast/shmublu/data/anomaly_video_datasets/
+${DATA_ROOT}/anomaly_video_datasets/
 ├── benchmark_short/
 │   ├── questions_dataset.json
 │   └── videos/<class>_{pos,neg}_NN.mp4      (≈ 13 frames each)
@@ -29,13 +62,12 @@ yields the nominal frame count.
     └── videos/<class>_{pos,neg}_NN.mp4      (112–256 frames, ≈ 184 nominal)
 ```
 
-**Source scripts of record.** The implementation is in
-`/workspace-vast/shmublu/git/streaming-mem/build_benchmark_long_buckets.py`
-(B1/B2/B3 driver) and
-`/workspace-vast/shmublu/data/anomaly_video_datasets/build_dataset_v2.py`
-(primitives: `find_best_rates`, `extract_frames_variable_rate`, constants).
-The short bucket is built per
-`/workspace-vast/shmublu/data/anomaly_video_datasets/benchmark_short/RECREATE.md`.
+**Source scripts of record.** The reference implementation is
+`build_benchmark_long_buckets.py` (B1/B2/B3 driver) and
+`build_dataset_v2.py` (primitives: `find_best_rates`,
+`extract_frames_variable_rate`, constants). The short bucket follows
+`benchmark_short/RECREATE.md`. Each is referenced below by
+`<name>:<line>` to pin the algorithmic source of each step.
 
 ---
 
@@ -100,7 +132,7 @@ Construct in Python as
 pip install SoccerNet
 python - <<'PY'
 from SoccerNet.Downloader import SoccerNetDownloader as SND
-d = SND(LocalDirectory="/workspace-vast/shmublu/data/anomaly_video_datasets/soccernet")
+d = SND(LocalDirectory="${DATA_ROOT}/soccernet")
 d.downloadGames(files=["Labels-v2.json","1_720p.mkv","2_720p.mkv"],
                 split=["train","valid","test"])
 PY
@@ -136,8 +168,8 @@ are **exactly 8** such events corpus-wide. Each event yields
 
 Filter EPIC rows into a dict keyed by class (in `build_probe_epic_*` scripts)
 to produce per-class `questions_dataset.json` files under
-`/workspace-vast/shmublu/data/anomaly_video_datasets/probe_*`. These probe
-files are the long-bucket builder's inputs (`CLASSES[*]["source_probe"]` in
+`${DATA_ROOT}/anomaly_video_datasets/probe_*`. These probe files are the
+long-bucket builder's inputs (`CLASSES[*]["source_probe"]` in
 `build_benchmark_long_buckets.py:83`).
 
 **Output.**
@@ -310,8 +342,8 @@ ffmpeg -y -loglevel error \
 
 **Output.** `videos/<class>_pos_NN.mp4` encoded at 1 fps so that
 `ffprobe -count_frames` reports frame count exactly equal to the number of
-extracted pngs (= integer duration in seconds). Audited by
-`/workspace-vast/shmublu/data/anomaly_video_datasets/audit_fps1_plugplay.py`:
+extracted pngs (= integer duration in seconds). Audited by the internal
+`audit_fps1_plugplay.py` integrity check (see Stage 9):
 `round(ffprobe_duration) == nb_read_frames ∈ [bmin, bmax]`. Verified
 example (open_fridge_pos_01): 11 / 36 / 96 / 256 frames for short / B1 / B2 / B3.
 
@@ -418,14 +450,12 @@ _probe_meta={source_probe, source_probe_video_index, source_video_id,
 
 See `build_benchmark_long_buckets.py:824`.
 
-**Validation.** After writing, run the integrity audit:
-
-```bash
-python /workspace-vast/shmublu/data/anomaly_video_datasets/audit_fps1_plugplay.py
-```
-
-Checks per mp4: `round(ffprobe_duration) == nb_read_frames` and
+**Validation.** After writing, run the integrity audit
+(internal `audit_fps1_plugplay.py`), which checks per mp4:
+`round(ffprobe_duration) == nb_read_frames` and
 `nb_read_frames ∈ [bmin, bmax]`. Exit code 0 iff every bucket passes.
+The same check is straightforward to re-implement from this paragraph
+alone if you regenerate the dataset.
 
 ### Stage 10 — Short bucket (different primitive)
 

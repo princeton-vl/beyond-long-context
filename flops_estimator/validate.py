@@ -5,9 +5,8 @@ Test cases:
   B) 32 frames @ 448x448, n_in_text=128, n_out_text=64
 
 Prints a single comparison table with the matmul-FLOPs total for each.
-Run via:
-    /workspace-vast/shmublu/scripts/slurm/bin/envctl run full-stack -- python -m flops_estimator.validate
-or directly:
+
+Run:
     python -m flops_estimator.validate
 """
 

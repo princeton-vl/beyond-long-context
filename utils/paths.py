@@ -8,8 +8,8 @@ SCRATCH_ROOT_ENV = "STREAMING_SCRATCH_ROOT"
 MODEL_CACHE_ENV = "STREAMING_MODEL_CACHE"
 TEMP_ROOT_ENV = "STREAMING_TEMP_ROOT"
 
-_DEFAULT_SCRATCH_ROOT = Path("/workspace-vast/shmublu/scratch")
-_DEFAULT_MODEL_CACHE = Path("/workspace-vast/shmublu/scratch/cache")
+_DEFAULT_SCRATCH_ROOT = Path.home() / ".cache" / "streaming-mem"
+_DEFAULT_MODEL_CACHE = _DEFAULT_SCRATCH_ROOT / "model-cache"
 _DEFAULT_TEMP_ROOT = _DEFAULT_MODEL_CACHE
 
 _TEMP_ENV_VARS = ("TMPDIR", "TEMP", "TMP")

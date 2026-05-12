@@ -56,10 +56,8 @@ DEFAULT_MAX_IMAGES_PER_REQUEST = 256  # With JPEG default (~25 KB/frame at 448x4
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 # Optional convenience slugs — verify against OpenRouter's /api/v1/models
-# catalog before trusting these in production. If a slug is wrong the API
+# catalog if you suspect a slug has changed. If a slug is wrong the API
 # returns a 404 which surfaces as an empty response (logged).
-# TODO(user): confirm the exact slugs for Gemini 3.1 and GPT 5.5 against
-# https://openrouter.ai/models once OPENROUTER_API_KEY is set.
 # Verified 2026-04-24 via OpenRouter model listing + vendor docs.
 # Image limits: Gemini ~3600 count, 20 MB inline (fits 256 JPEG frames at 448×448);
 # GPT 1500 count / 512 MB. Defaults below use the BEST available slug per vendor.

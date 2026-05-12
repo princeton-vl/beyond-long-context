@@ -15,7 +15,8 @@ logger = logging.getLogger(__name__)
 class VideoGraph:
     """
     VideoGraph class for managing video memory nodes and relationships.
-    Ported from /n/fs/scratch/sb6870/m3-agent-fixed/mmagent/videograph.py
+    Ported from the original M3-Agent reference implementation
+    (upstream: mmagent/videograph.py).
     """
     
     def __init__(self, max_img_embeddings=10, max_audio_embeddings=20, 

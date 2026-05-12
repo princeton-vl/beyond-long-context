@@ -408,9 +408,7 @@ class LongVILAModel(VideoLanguageModelInterface):
             print(f"[LongVILA-Isolated] Video mode batching not supported, using sequential")
             return [self._process_single_isolated_context(ctx, max_tokens) for ctx in contexts]
 
-        # Sequence mode: text-only batching (proven to work)
-        # TODO: extract this prompt-build/tokenize/system-prompt block — duplicated in
-        # _process_single_isolated_context below.
+        # Sequence mode: text-only batching.
         batch_texts = []
         for ctx in contexts:
             # Build prompt with main sequence, candidate, and question
